@@ -1,0 +1,18 @@
+---
+# tasks file for vim
+
+- name: install build-dep of vim
+  apt: name=vim state=build-dep
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: remove vim 
+  apt: name=vim state=absent
+
+- name: git clone vim
+  git:
+    repo: "https://github.com/vim/vim.git"
+    dest: "{{ ansible_env.HOME }}/vim"
+    update: no
+
+- name: build vim
+  shell: "cd {{ ansible_env.HOME }}/vim && ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.7/config --enable-python3interp=yes --with-python3-config-dir=/usr/lib/python3.5/config --enable-perlinterp=yes --enable-luainterp=yes --enable-gui=gtk2 --enable-cscope --prefix=/usr && make VIMRUNTIMEDIR=/usr/share/vim/vim80"
