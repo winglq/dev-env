@@ -1,0 +1,4 @@
+---
+# defaults file for iscsiadm
+target_iqn: iqn.2017-02-07.com.chinac.tg1
+target_ip: "{{ hostvars['172.16.77.21']['ansible_default_ipv4']['address'] }}"

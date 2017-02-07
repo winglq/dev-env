@@ -1,0 +1,4 @@
+---
+# defaults file for tgtd
+backingstore: /dev/loop1
+target_name: iqn.2017-02-07.com.chinac.tg1
