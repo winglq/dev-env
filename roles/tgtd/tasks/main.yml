@@ -7,17 +7,17 @@
   service: name=tgtd state=started enabled=yes
 
 - name: add target
-  shell: tgtadm --lld iscsi --op new --mode target --tid 1 --targetname {{ target_name }}
+  shell: tgtadm --lld iscsi --op new --mode target --tid {{ tid }} --targetname {{ target_iqn }}
   ignore_errors: True
 
 - name: set backing store
-  shell: tgtadm --lld iscsi --op new --mode logicalunit --tid 1 --lun 1 --backing-store {{ backingstore }}
+  shell: tgtadm --lld iscsi --op new --mode logicalunit --tid {{ tid }} --lun 1 --backing-store {{ backingstore }}
   ignore_errors: True
 
 - name: set initiator address
-  shell: tgtadm --lld iscsi --mode target --op bind --tid 1 --initiator-address={{ ansible_default_ipv4.address }} 
+  shell: tgtadm --lld iscsi --mode target --op bind --tid {{ tid }} --initiator-address={{ ansible_default_ipv4.address }} 
   ignore_errors: True
 
 - name: add ACL to allow all initiator
-  shell: tgtadm --lld iscsi --op bind --mode target --tid 1 -I ALL
+  shell: tgtadm --lld iscsi --op bind --mode target --tid {{ tid }} -I ALL
   ignore_errors: True

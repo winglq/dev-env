@@ -1,6 +1,6 @@
 ---
 # defaults file for loopback-device
 #
-device_name: iscsi-backend
-device_size: 100M
-device_file: /root/loop1
+device_file: /root/iscsi-backend2
+device_size: 10G
+device_name: loop2
