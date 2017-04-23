@@ -26,9 +26,18 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 map <leader>nd :NERDTreeToggle<CR>
+autocmd VimEnter * NERDTree
+
 map <Leader>p :call InsertLine()<CR>
+
 let g:pep8_map='<leader>8'
+
 set statusline=%<%F%1*%m%*%r%y%=%b\ 0x%B\ \ [l,c]%l,%c%V\ %p%%\ %{fugitive#statusline()}
+colorscheme solarized
+highlight ColorColumn ctermbg=3
+set colorcolumn=80
+set list
+
 function! InsertLine()
   let trace = expand("import pdb; pdb.set_trace()")
   execute "normal o".trace

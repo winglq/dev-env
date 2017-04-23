@@ -7,6 +7,12 @@
     dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
     update: no
 
+- name: make usre colors exist
+  file: dest={{ ansible_env.HOME }}/.vim/colors state=directory
+
+- name: copy color scheme
+  copy: src=solarized.vim dest={{ ansible_env.HOME }}/.vim/colors
+
 - name: copy .vimrc
   template: src=vimrc dest={{ ansible_env.HOME }}/.vimrc
 
