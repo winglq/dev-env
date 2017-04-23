@@ -1,9 +1,2 @@
 [dev]
-localhost
-
-[tgtd]
-172.16.77.21
-
-[iscsiadm]
-172.16.90.79
-172.16.77.21
+localhost:1112

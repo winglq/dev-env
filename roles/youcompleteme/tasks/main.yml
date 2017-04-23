@@ -2,16 +2,6 @@
 # tasks file for youcompleteme
 #
 
-- name: install latest vim
-  apt: name=build-essential state=latest
-  become: true
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
-- name: install build-essential
-  apt: name=build-essential state=present
-  become: true
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
 - name: install cmake
   apt: name=cmake state=present
   become: true

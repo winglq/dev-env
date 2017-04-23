@@ -1,4 +1,4 @@
-- name: install youcompleteme
+- name: install vim-plugins
   hosts: dev
   roles:
-    - youcompleteme
+    - vim-plugins

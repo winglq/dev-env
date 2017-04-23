@@ -1,0 +1,14 @@
+---
+# tasks file for vim-plugins
+#
+- name: git clone Vundle
+  git:
+    repo: "https://github.com/VundleVim/Vundle.vim.git"
+    dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
+    update: no
+
+- name: copy .vimrc
+  template: src=vimrc dest={{ ansible_env.HOME }}/.vimrc
+
+- name: install plugins
+  shell: vim +PluginInstall +qall
