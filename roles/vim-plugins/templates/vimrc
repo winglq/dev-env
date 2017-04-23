@@ -40,6 +40,8 @@ set statusline=%<%F%1*%m%*%r%y%=%b\ 0x%B\ \ [l,c]%l,%c%V\ %p%%\ %{fugitive#statu
 colorscheme solarized
 highlight ColorColumn ctermbg=3
 set colorcolumn=80
+set t_Co=256
+set hlsearch
 set list
 
 function! InsertLine()

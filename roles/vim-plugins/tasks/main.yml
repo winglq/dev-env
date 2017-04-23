@@ -21,6 +21,8 @@
 
 - name: update colorama
   pip: name=colorama state=latest
+  become: yes
 
 - name: install jedi
   pip: name=jedi
+  become: yes
