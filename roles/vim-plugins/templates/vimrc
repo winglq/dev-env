@@ -10,7 +10,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'vim-scripts/pep8'
 Plugin 'tpope/vim-git'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'ervandew/supertab'
+#Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
