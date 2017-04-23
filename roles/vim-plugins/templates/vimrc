@@ -13,6 +13,7 @@ Plugin 'tpope/vim-git'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'ervandew/supertab'
+Plugin 'chase/vim-ansible-yaml'
 #Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -29,7 +30,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 map <leader>nd :NERDTreeToggle<CR>
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
 
 map <Leader>p :call InsertLine()<CR>
 
