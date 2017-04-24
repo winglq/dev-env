@@ -14,6 +14,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'ervandew/supertab'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'davidhalter/jedi-vim'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -29,6 +30,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+colorscheme solarized
+
 map <leader>nd :NERDTreeToggle<CR>
 " autocmd VimEnter * NERDTree
 
@@ -37,7 +40,6 @@ map <Leader>p :call InsertLine()<CR>
 let g:pep8_map='<leader>8'
 
 set statusline=%<%F%1*%m%*%r%y%=%b\ 0x%B\ \ [l,c]%l,%c%V\ %p%%\ %{fugitive#statusline()}
-colorscheme solarized
 highlight ColorColumn ctermbg=3
 set colorcolumn=80
 set t_Co=256
