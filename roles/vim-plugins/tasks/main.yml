@@ -1,0 +1,28 @@
+---
+# tasks file for vim-plugins
+#
+- name: git clone Vundle
+  git:
+    repo: "https://github.com/VundleVim/Vundle.vim.git"
+    dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
+    update: no
+
+- name: make usre colors exist
+  file: dest={{ ansible_env.HOME }}/.vim/colors state=directory
+
+- name: copy color scheme
+  copy: src=solarized.vim dest={{ ansible_env.HOME }}/.vim/colors
+
+- name: copy .vimrc
+  template: src=vimrc dest={{ ansible_env.HOME }}/.vimrc
+
+- name: install plugins
+  shell: vim +PluginInstall +qall
+
+- name: update colorama
+  pip: name=colorama state=latest
+  become: yes
+
+- name: install jedi
+  pip: name=jedi
+  become: yes

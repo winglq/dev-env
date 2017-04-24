@@ -2,11 +2,22 @@
 # tasks file for vim
 
 - name: install build-dep of vim
-  apt: name=vim state=build-dep
+  shell: apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev lua5.1 lua5.1-dev libperl-dev git
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  become: yes
+
+- name: install build-dev of vim
+  shell:  yum install -y ruby ruby-devel lua lua-devel luajit luajit-devel ctags git python python-devel python3 python3-devel tcl-devel perl perl-devel perl-ExtUtils-ParseXS perl-ExtUtils-XSpp perl-ExtUtils-CBuilder perl-ExtUtils-Embed
+  when: ansible_distribution == 'CentOS'
 
 - name: remove vim 
   apt: name=vim state=absent
+  when: ansible_distribution == 'Ubuntu'
+  become: yes
+
+- name: remove vim 
+  yum: name=vim state=absent
+  when: ansible_distribution == 'CentOS'
 
 - name: git clone vim
   git:
@@ -15,4 +26,9 @@
     update: no
 
 - name: build vim
-  shell: "cd {{ ansible_env.HOME }}/vim && ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.7/config --enable-python3interp=yes --with-python3-config-dir=/usr/lib/python3.5/config --enable-perlinterp=yes --enable-luainterp=yes --enable-gui=gtk2 --enable-cscope --prefix=/usr && make VIMRUNTIMEDIR=/usr/share/vim/vim80"
+  shell: "cd {{ ansible_env.HOME }}/vim && ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.7/config --enable-python3interp=yes --with-python3-config-dir=/usr/lib/python3.5/config --enable-perlinterp=yes --enable-luainterp=yes --enable-gui=gtk2 --enable-cscope --prefix=/usr"
+
+- name: intall vim
+  shell: "cd {{ ansible_env.HOME }}/vim && make install"
+  become: yes
+

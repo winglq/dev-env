@@ -1,8 +1,0 @@
----
-# tasks file for iscsiadm
-#
-- name: discovery target
-  shell: iscsiadm --mode discovery --type sendtargets --portal {{ target_ip }}
-
-- name: login target
-  shell: iscsiadm -m node -T {{ target_iqn }} --login
