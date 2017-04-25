@@ -86,16 +86,16 @@ mysql -e "update services set deleted = 1 where host like 'controller%' and disa
 
 ### OoO network setting
 change the following config
-  ```
-  vim /etc/neutron/plugins/ml2/linuxbridge_agent.ini
-  ```
-  firewall_driver = noop
-  prevent_arp_spoofing = False
+```
+vim /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+```
+firewall_driver = noop
+prevent_arp_spoofing = False
 
 remove flows
-  ```shell
-  iptables -F
-  ```
+```shell
+iptables -F
+```
 
 ### debug network by tcpdump
 ```shell
@@ -107,4 +107,12 @@ tcpdump -i tap3692138a-69 -exx -n
 ### alter RETENTION 
 ```
 ALTER RETENTION POLICY default ON stackwatch DURATION 60d REPLICATION 1 DEFAULT
+```
+
+---
+
+### enable cinder notification /etc/cinder/cinder.conf
+```
+[oslo_messaging_notifications]
+driver=messaging
 ```

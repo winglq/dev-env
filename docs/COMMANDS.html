@@ -282,11 +282,11 @@ git push gerrit 2016.3.RC1
 <hr>
 <h3 id="ooo-network-setting">OoO network setting</h3>
 <p>change the following config</p>
-<pre><code>  vim /etc/neutron/plugins/ml2/linuxbridge_agent.ini
-</code></pre><p>  firewall_driver = noop
-  prevent_arp_spoofing = False</p>
+<pre><code>vim /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+</code></pre><p>firewall_driver = noop
+prevent_arp_spoofing = False</p>
 <p>remove flows</p>
-<pre><code class="lang-shell">  iptables -F
+<pre><code class="lang-shell">iptables -F
 </code></pre>
 <h3 id="debug-network-by-tcpdump">debug network by tcpdump</h3>
 <pre><code class="lang-shell">tcpdump -i tap3692138a-69 -exx -n
@@ -294,6 +294,10 @@ git push gerrit 2016.3.RC1
 <hr>
 <h3 id="alter-retention">alter RETENTION</h3>
 <pre><code>ALTER RETENTION POLICY default ON stackwatch DURATION 60d REPLICATION 1 DEFAULT
+</code></pre><hr>
+<h3 id="enable-cinder-notification-etccindercinderconf">enable cinder notification /etc/cinder/cinder.conf</h3>
+<pre><code>[oslo_messaging_notifications]
+driver=messaging
 </code></pre>
                                 
                                 </section>
@@ -333,7 +337,7 @@ git push gerrit 2016.3.RC1
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Commands","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"COMMANDS.md","mtime":"2017-04-25T07:58:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T07:58:15.254Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Commands","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"COMMANDS.md","mtime":"2017-04-25T12:16:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T12:16:17.890Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
