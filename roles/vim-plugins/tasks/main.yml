@@ -1,6 +1,9 @@
 ---
 # tasks file for vim-plugins
 #
+- name: install git
+  yum: name=git
+
 - name: git clone Vundle
   git:
     repo: "https://github.com/VundleVim/Vundle.vim.git"

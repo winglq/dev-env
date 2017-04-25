@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>COMMANDS · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="COMMANDS.html" />
     
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -87,7 +87,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -100,7 +100,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="COMMANDS.html">
+        <li class="chapter active" data-level="1.2" data-path="COMMANDS.html">
             
                 <a href="COMMANDS.html">
             
@@ -143,7 +143,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >COMMANDS</a>
     </h1>
 </div>
 
@@ -158,7 +158,41 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
+                                <h2 id="commands-table">Commands table</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">COMMAND</th>
+<th style="text-align:left">DESCRIPTION</th>
+<th style="text-align:left">RPM package</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">netstat -anpt</td>
+<td style="text-align:left">check listening port</td>
+<td style="text-align:left">net-tools</td>
+</tr>
+<tr>
+<td style="text-align:left">yum whatprovides pkg</td>
+<td style="text-align:left">find pkg name</td>
+</tr>
+</tbody>
+</table>
+<h2 id="configure">Configure</h2>
+<h3 id="add-pip-repo">Add pip repo</h3>
+<p>&#x7F16;&#x8F91;/&#x521B;&#x5EFA;&#x6587;&#x4EF6;/etc/pip.conf&#xFF0C;&#x586B;&#x5165;&#x4E0B;&#x9762;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code>[global]
+index-url = http://pmo02.chinac.com:8001/simple
+extra-index-url = https://pypi.python.org/simple
+
+[install]
+trusted-host = pmo02.chinac.com
+</code></pre><h4 id="repos">Repos</h4>
+<ul>
+<li>index-url = <a href="http://pypi.douban.com/simple" target="_blank">http://pypi.douban.com/simple</a>  &#x8C46;&#x74E3;</li>
+<li>index-url = <a href="http://mirrors.aliyun.com/pypi/simple" target="_blank">http://mirrors.aliyun.com/pypi/simple</a></li>
+</ul>
 
                                 
                                 </section>
@@ -186,10 +220,10 @@
 
             
                 
-                
-                <a href="COMMANDS.html" class="navigation navigation-next navigation-unique" aria-label="Next page: COMMANDS">
-                    <i class="fa fa-angle-right"></i>
+                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -198,7 +232,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"COMMANDS","level":"1.2","depth":1,"path":"COMMANDS.md","ref":"COMMANDS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-04-24T05:19:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T02:57:34.831Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"COMMANDS","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"COMMANDS.md","mtime":"2017-04-25T02:49:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T02:57:34.831Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
