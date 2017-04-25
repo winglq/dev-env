@@ -1,5 +1,5 @@
 # Summary
 * [Introduction](README.md)
-* [COMMANDS](COMMANDS.md)
+* [Commands](COMMANDS.md)
 
 

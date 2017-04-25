@@ -15,6 +15,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'ervandew/supertab'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'itchyny/lightline.vim'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -38,13 +40,19 @@ map <leader>nd :NERDTreeToggle<CR>
 map <Leader>p :call InsertLine()<CR>
 
 let g:pep8_map='<leader>8'
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
 
-set statusline=%<%F%1*%m%*%r%y%=%b\ 0x%B\ \ [l,c]%l,%c%V\ %p%%\ %{fugitive#statusline()}
 highlight ColorColumn ctermbg=3
 set colorcolumn=80
 set t_Co=256
 set hlsearch
 set list
+set nu
+set expandtab
+set listchars=tab:>-
+set laststatus=2
 
 function! InsertLine()
   let trace = expand("import pdb; pdb.set_trace()")

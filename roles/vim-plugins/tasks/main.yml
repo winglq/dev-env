@@ -3,6 +3,7 @@
 #
 - name: install git
   yum: name=git
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: git clone Vundle
   git:
@@ -19,9 +20,9 @@
 - name: copy .vimrc
   template: src=vimrc dest={{ ansible_env.HOME }}/.vimrc
 
-- name: update colorama
-  pip: name=colorama state=latest
-  become: yes
+  #- name: update colorama
+  #  pip: name=colorama
+  #  become: yes
 
 - name: install jedi
   pip: name=jedi

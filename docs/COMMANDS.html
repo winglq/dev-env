@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>COMMANDS · GitBook</title>
+        <title>Commands · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -105,7 +105,7 @@
                 <a href="COMMANDS.html">
             
                     
-                    COMMANDS
+                    Commands
             
                 </a>
             
@@ -143,7 +143,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >COMMANDS</a>
+        <a href="." >Commands</a>
     </h1>
 </div>
 
@@ -179,6 +179,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="configure">Configure</h2>
 <h3 id="add-pip-repo">Add pip repo</h3>
 <p>&#x7F16;&#x8F91;/&#x521B;&#x5EFA;&#x6587;&#x4EF6;/etc/pip.conf&#xFF0C;&#x586B;&#x5165;&#x4E0B;&#x9762;&#x5185;&#x5BB9;&#xFF1A;</p>
@@ -193,7 +194,20 @@ trusted-host = pmo02.chinac.com
 <li>index-url = <a href="http://pypi.douban.com/simple" target="_blank">http://pypi.douban.com/simple</a>  &#x8C46;&#x74E3;</li>
 <li>index-url = <a href="http://mirrors.aliyun.com/pypi/simple" target="_blank">http://mirrors.aliyun.com/pypi/simple</a></li>
 </ul>
-
+<hr>
+<h3 id="persistent-mount-point-after-reboot">Persistent mount point after reboot</h3>
+<p>$ cat /etc/fstab</p>
+<pre><code># /etc/fstab: static file system information.
+#
+# Use &apos;blkid&apos; to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;
+#UUID=c3699352-2b1d-43ca-9f75-82205697ef08 /               ext4    errors=remount-ro 0       1
+/dev/vda1                               /               ext4    defaults        0       1
+/dev/vdb1                               /mnt            ext4    defaults        0       1
+</code></pre>
                                 
                                 </section>
                             
@@ -232,7 +246,7 @@ trusted-host = pmo02.chinac.com
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"COMMANDS","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"COMMANDS.md","mtime":"2017-04-25T02:49:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T02:57:34.831Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Commands","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"COMMANDS.md","mtime":"2017-04-25T05:25:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T05:25:46.516Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -240,6 +254,10 @@ trusted-host = pmo02.chinac.com
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
