@@ -34,7 +34,7 @@ index-url = http://pypi.douban.com/simple
 extra-index-url = https://pypi.python.org/simple
 
 [install]
-trusted-host = pmo02.chinac.com
+trusted-host = pypi.douban.com
 ```
 
 #### Repos
