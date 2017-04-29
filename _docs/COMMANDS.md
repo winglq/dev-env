@@ -18,6 +18,7 @@
 |prlimit -p pid|check process resource limit|
 |/lib/udev/scsi_id --page '0x83' --whitelisted path|get disk uuid|
 |echo 1 > /sys/bus/scsi/drivers/sd/x:x:x:x/delete|delete disk
+|echo "1" > /sys/block/xxx/device/delete |delete /dev/xxx
 |echo '- - -' > /sys/class/scsi_host/hba_host_dev/scan|rescan fc device
 |systool -c fc_host -v|check fibre channel device info
 
