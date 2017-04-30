@@ -1,0 +1,7 @@
+---
+# tasks file for tmux
+#
+- name: install tmux
+  package: name=tmux
+- name: copy config
+  template: src=tmux.conf dest=~/.tmux.conf
