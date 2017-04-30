@@ -35,6 +35,7 @@ filetype plugin on
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+set t_Co=256
 colorscheme solarized
 
 map <leader>nd :NERDTreeToggle<CR>
@@ -52,15 +53,18 @@ let g:lightline = {
 
 highlight ColorColumn ctermbg=3
 set colorcolumn=80
-set t_Co=256
 set hlsearch
 set list
 set nu
 set expandtab
-set listchars=tab:>-
 set laststatus=2
 
 function! InsertLine()
   let trace = expand("import pdb; pdb.set_trace()")
   execute "normal o".trace
 endfunction
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
