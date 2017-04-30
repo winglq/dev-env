@@ -1,4 +1,5 @@
-- name: install vim-plugins
+- name: install dev roles
   hosts: dev
   roles:
+    - tmux
     - vim-plugins
