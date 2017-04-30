@@ -1,8 +1,0 @@
-[Unit]
-Description=Setup loop devices
-
-[Service]
-Type=oneshot
-ExecStart=/usr/lib/systemd/scripts/losetup-{{ device_name }}.sh
-TimeoutSec=60
-RemainAfterExit=yes

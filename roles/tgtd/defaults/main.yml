@@ -1,5 +1,0 @@
----
-# defaults file for tgtd
-backingstore: /dev/loop3
-target_iqn: iqn.2017-02-07.com.chinac.tg3
-tid: 3
