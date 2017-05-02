@@ -20,6 +20,8 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'vim-scripts/Mark'
 Plugin 'benmills/vimux'
 Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'vim-scripts/cscope.vim'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -41,15 +43,19 @@ colorscheme solarized
 map <leader>nd :NERDTreeToggle<CR>
 " autocmd VimEnter * NERDTree
 
-map <Leader>p :call InsertLine()<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
+
+map <Leader>tt :TlistToggle<CR>
+map <Leader>tc :TlistClose<CR>
 
 let g:pep8_map='<leader>8'
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ }
+let g:Tlist_Auto_Open = 1
+let g:ctrlp_regexp_search = 1
 
 highlight ColorColumn ctermbg=3
 set colorcolumn=80
@@ -59,6 +65,7 @@ set nu
 set expandtab
 set laststatus=2
 
+map <Leader>p :call InsertLine()<CR>
 function! InsertLine()
   let trace = expand("import pdb; pdb.set_trace()")
   execute "normal o".trace
