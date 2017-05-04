@@ -21,6 +21,7 @@
 |echo "1" > /sys/block/xxx/device/delete |delete /dev/xxx
 |echo '- - -' > /sys/class/scsi_host/hba_host_dev/scan|rescan fc device
 |systool -c fc_host -v|check fibre channel device info
+|echo cfq > /sys/block/xxx/queue/scheduler |change xxx use cfq scheduler method
 
 
 ---

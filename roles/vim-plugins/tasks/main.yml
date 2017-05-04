@@ -36,5 +36,9 @@
   package: name=cscope
   become: yes
 
+- name: install sshfs
+  package: name=sshfs
+  become: yes
+
 - name: install plugins
   shell: vim +PluginInstall +qall
