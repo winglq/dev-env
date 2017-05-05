@@ -120,3 +120,36 @@ ALTER RETENTION POLICY default ON stackwatch DURATION 60d REPLICATION 1 DEFAULT
 [oslo_messaging_notifications]
 driver=messaging
 ```
+
+----
+
+### SSH local and remote forwarding
+
+HostA is the local machine and example.com is the remote machine
+imgur.com is a third party machine could rearched by example.com
+#### Local forwarding
+9000 is the port owned by HostA
+localhost is example.com
+```shell
+ssh -L HostA_IP:9000:imgur.com:80 user@example.com
+ssh -L HostA_IP:9000:localhost:5432 user@example.com
+```
+#### Remote forwarding
+9000 is the owned by example.com
+localhost is HostA
+```shell
+ssh -R 9000:localhost:3000 user@example.com
+```
+#### enable sshd configuration /etc/ssh/sshd_config
+```
+GatewayPorts yes
+```
+```shell
+systemctl restart sshd
+```
+#### enable switch to not allocate a tty
+```shell
+ssh -nNT -L 9000:imgur.com:80 user@example.com
+```
+
+----

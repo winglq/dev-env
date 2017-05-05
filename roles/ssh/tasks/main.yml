@@ -1,0 +1,18 @@
+---
+# tasks file for ssh
+
+- name: update ssh config
+  blockinfile:
+    dest: ~/.ssh/config
+    create: yes
+    block: |
+      Host vps
+       HostName {{ remote_ssh_host }}
+       User {{ remote_ssh_user }}
+       IdentityFile ~/.ssh/id_rsa
+       Port {{ remote_ssh_port }}
+      Host vps_fwd
+       HostName {{ remote_ssh_host }}
+       User {{ remote_ssh_user }}
+       Port {{ remote_forward_port }}
+       IdentityFile ~/.ssh/id_rsa

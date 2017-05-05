@@ -1,5 +1,6 @@
 - name: install dev roles
   hosts: dev
   roles:
+    - ssh
     - tmux
     - vim-plugins

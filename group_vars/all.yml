@@ -1,7 +1,4 @@
-device_file: /dev/shm/iscsi-backend3
-device_size: 10G
-device_name: loop3
-target_iqn: iqn.2017-02-07.com.chinac.tg{{tid}}
-#target_ip: "{{ hostvars['172.16.77.21']['ansible_default_ipv4']['address'] }}"
-backingstore: /dev/{{ device_name }}
-tid: 4
+remote_ssh_host: changeme
+remote_ssh_user: root
+remote_ssh_port: changeme
+remote_forward_port: changeme
