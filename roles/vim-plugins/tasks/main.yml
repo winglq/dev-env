@@ -1,9 +1,15 @@
 ---
 # tasks file for vim-plugins
 #
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version | int}}.yml"
+    - "../vars/{{ ansible_distribution }}.yml"
+    - "../vars/{{ ansible_os_family }}.yml"
+    - "../vars/default.yml"
+
 - name: install git
-  yum: name=git
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  package: name=git
 
 - name: git clone Vundle
   git:
@@ -37,8 +43,9 @@
   become: yes
 
 - name: install sshfs
-  package: name=sshfs
+  package: name={{ sshfs }}
   become: yes
+  when: ansible_distribution == 'Debian'
 
 - name: install plugins
   shell: vim +PluginInstall +qall
