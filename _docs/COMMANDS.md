@@ -153,3 +153,4 @@ ssh -nNT -L 9000:imgur.com:80 user@example.com
 ```
 
 ----
+[vim cheat sheet](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
