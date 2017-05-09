@@ -1,4 +1,4 @@
-remote_ssh_host: changeme
+remote_ssh_host: 45.78.14.215
 remote_ssh_user: root
-remote_ssh_port: changeme
-remote_forward_port: changeme
+remote_ssh_port: 26920
+remote_forward_port: 2017

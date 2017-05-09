@@ -64,6 +64,7 @@ set list
 set nu
 set expandtab
 set laststatus=2
+set relativenumber
 
 map <Leader>p :call InsertLine()<CR>
 function! InsertLine()
