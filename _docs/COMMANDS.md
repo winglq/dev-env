@@ -23,7 +23,7 @@
 |systool -c fc_host -v|check fibre channel device info
 |echo cfq > /sys/block/xxx/queue/scheduler |change xxx use cfq scheduler method
 |du -hs * &verbar; sort -h | list dir sort by capacity
-
+|ctags -R --c++-kinds=+p --fields=+iaS --extra=+q /usr/include| generate tags
 
 ---
 
