@@ -153,5 +153,12 @@ systemctl restart sshd
 ssh -nNT -L 9000:imgur.com:80 user@example.com
 ```
 
+-----
+yum rollback
+```shell
+yum history list all
+yum history undo tansaction_id
+```
+
 ----
 [vim cheat sheet](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
