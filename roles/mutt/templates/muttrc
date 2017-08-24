@@ -92,3 +92,6 @@ bind pager L list-reply
 
 # '?' is used for search-opposite
 bind pager \Ch help
+
+alternative_order text/plain text/html
+auto_view text/html
