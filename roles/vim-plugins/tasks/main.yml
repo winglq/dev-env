@@ -23,6 +23,18 @@
   #  pip: name=colorama
   #  become: yes
 
+- name: download pip
+  shell: wget https://bootstrap.pypa.io/get-pip.py -O /root/get-pip.py creates=/root/get-pip.py
+
+- name: check whether pip installed
+  shell: pip
+  register: rt
+  ignore_errors: yes
+
+- name: install pip
+  shell: python /root/get-pip.py
+  when: rt.rc != 0
+
 - name: install jedi
   pip: name=jedi
   become: yes

@@ -1,0 +1,16 @@
+---
+# tasks file for mutt
+- name: install mutt
+  yum: name=mutt
+- name: install cyrus-sasl-plain
+  yum: name=cyrus-sasl-plain
+  #- name: install cyrus-sasl
+  #  yum: name=cyrus-sasl
+  #- name: install openssl
+  #  yum: name=openssl
+  #- name: install gnutls
+  #  yum: name=gnutls
+- shell: mkdir -p ~/.mutt/cache/headers
+- shell: mkdir ~/.mutt/cache/bodies
+- shell: touch ~/.mutt/certificates
+- template: src=muttrc dest=~/.mutt
