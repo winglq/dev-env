@@ -3,5 +3,6 @@
 #
 - name: install tmux
   package: name=tmux
+  become: root
 - name: copy config
   template: src=tmux.conf dest=~/.tmux.conf

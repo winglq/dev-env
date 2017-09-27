@@ -22,9 +22,12 @@
   #- name: update colorama
   #  pip: name=colorama
   #  become: yes
+  #
+- name: copy pip.conf
+  template: src=pip.conf dest=/etc/pip.conf
 
 - name: download pip
-  shell: wget https://bootstrap.pypa.io/get-pip.py -O /root/get-pip.py creates=/root/get-pip.py
+  shell: wget https://bootstrap.pypa.io/get-pip.py -O /root/get-pip.py creates=/root/get-pip.py --no-check-certificate
 
 - name: check whether pip installed
   shell: pip
