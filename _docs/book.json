@@ -1,0 +1,15 @@
+{
+    "title": "Dev env",
+    "language": "zh-CN",
+    "plugins": [
+        "toc",
+        "splitter",
+        "prism",
+        "collapsible-chapters",
+        "highlight",
+        "navigator"
+    ],
+    "styles": {
+        "website": "style.css"
+    }
+}
