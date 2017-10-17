@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>CGroup BlkIO Tests · Dev env</title>
+        <title>Raspberry Pin Map · Dev env</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -63,10 +63,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="RASPBERRY_PIN.html" />
+    <link rel="next" href="VIMCHEATSHEET.html" />
     
     
-    <link rel="prev" href="FCTESTCASES.html" />
+    <link rel="prev" href="BLKIOTEST.html" />
     
 
     </head>
@@ -147,7 +147,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="BLKIOTEST.html">
+        <li class="chapter " data-level="1.5" data-path="BLKIOTEST.html">
             
                 <a href="BLKIOTEST.html">
             
@@ -160,7 +160,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="RASPBERRY_PIN.html">
+        <li class="chapter active" data-level="1.6" data-path="RASPBERRY_PIN.html">
             
                 <a href="RASPBERRY_PIN.html">
             
@@ -229,7 +229,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >CGroup BlkIO Tests</a>
+        <a href="." >Raspberry Pin Map</a>
     </h1>
 </div>
 
@@ -244,26 +244,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="blkio_sub_system_test_">blkio sub system test.</h1>
-<p>The test script is as following. Proportional controll does not work on devices
-which has LVs sitting on them.</p>
-<pre class="language-"><code class="lang-shell">#!/usr/bin/bash
-mkdir -p /sys/fs/cgroup/blkio/test1/ /sys/fs/cgroup/blkio/test2
-echo 1000 &gt; /sys/fs/cgroup/blkio/test1/blkio.weight
-echo 500 &gt; /sys/fs/cgroup/blkio/test2/blkio.weight
-#echo 252:1 20971520 &gt; /sys/fs/cgroup/blkio/test1/blkio.throttle.read_bps_device
-sync
-echo 3 &gt; /proc/sys/vm/drop_caches
-dd if=/mnt/lvol0/zerofile of=/dev/null &amp;
-echo $! &gt; /sys/fs/cgroup/blkio/test1/tasks
-cat /sys/fs/cgroup/blkio/test1/tasks
-echo &quot;dd1 task written&quot;
-dd if=/mnt/lvol1/zerofile1 of=/dev/null &amp;
-echo $! &gt; /sys/fs/cgroup/blkio/test2/tasks
-cat /sys/fs/cgroup/blkio/test2/tasks
-echo &quot;dd2 task written&quot;
-</code></pre>
-<p><a href="https://www.redhat.com/archives/dm-devel/2016-February/msg00192.html" target="_blank">blkio cgroups controller doesn&apos;t work with LVM</a></p>
+                                <p><img src="rp2_pinout.png" alt="raspberry pin mapping"></p>
 
                                 
                                 </section>
@@ -291,12 +272,12 @@ echo &quot;dd2 task written&quot;
 
             
                 
-                <a href="FCTESTCASES.html" class="navigation navigation-prev " aria-label="Previous page: FC Test Cases">
+                <a href="BLKIOTEST.html" class="navigation navigation-prev " aria-label="Previous page: CGroup BlkIO Tests">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="RASPBERRY_PIN.html" class="navigation navigation-next " aria-label="Next page: Raspberry Pin Map">
+                <a href="VIMCHEATSHEET.html" class="navigation navigation-next " aria-label="Next page: VIM cheat sheet">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -307,7 +288,7 @@ echo &quot;dd2 task written&quot;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CGroup BlkIO Tests","level":"1.5","depth":1,"next":{"title":"Raspberry Pin Map","level":"1.6","depth":1,"path":"RASPBERRY_PIN.md","ref":"RASPBERRY_PIN.md","articles":[]},"previous":{"title":"FC Test Cases","level":"1.4","depth":1,"path":"FCTESTCASES.md","ref":"FCTESTCASES.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toc","splitter","prism","collapsible-chapters","highlight","navigator","livereload"],"styles":{"website":"style.css"},"pluginsConfig":{"prism":{},"livereload":{},"splitter":{},"toc":{},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Dev env","language":"zh-CN","gitbook":"*"},"file":{"path":"BLKIOTEST.md","mtime":"2017-05-04T09:55:17.707Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-17T05:10:08.619Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Raspberry Pin Map","level":"1.6","depth":1,"next":{"title":"VIM cheat sheet","level":"1.7","depth":1,"path":"VIMCHEATSHEET.md","ref":"VIMCHEATSHEET.md","articles":[]},"previous":{"title":"CGroup BlkIO Tests","level":"1.5","depth":1,"path":"BLKIOTEST.md","ref":"BLKIOTEST.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toc","splitter","prism","collapsible-chapters","highlight","navigator","livereload"],"styles":{"website":"style.css"},"pluginsConfig":{"prism":{},"livereload":{},"splitter":{},"toc":{},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Dev env","language":"zh-CN","gitbook":"*"},"file":{"path":"RASPBERRY_PIN.md","mtime":"2017-10-17T05:09:44.300Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-17T05:10:08.619Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
