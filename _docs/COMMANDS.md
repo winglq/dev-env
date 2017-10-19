@@ -25,6 +25,9 @@
 |du -hs * &verbar; sort -h | list dir sort by capacity
 |ctags -R --c++-kinds=+p --fields=+iaS --extra=+q /usr/include| generate tags
 |npm config set registry https://registry.npm.taobao.org| npm change register
+|iptables -A INPUT -p tcp --destination-port 4000 -j DROP|blok tcp port 4000
+|sudo iptables -L --line-numbers|list rules with line number
+|sudo iptables -D INPUT 3|delete rule by line number
 
 ---
 
