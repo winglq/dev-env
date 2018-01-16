@@ -22,6 +22,7 @@ Plugin 'benmills/vimux'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/cscope.vim'
+Plugin 'fatih/vim-go'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
