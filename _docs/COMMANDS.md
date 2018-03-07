@@ -28,6 +28,7 @@
 |iptables -A INPUT -p tcp --destination-port 4000 -j DROP|blok tcp port 4000
 |sudo iptables -L --line-numbers|list rules with line number
 |sudo iptables -D INPUT 3|delete rule by line number
+|npm install -g webpack-cli --registry=https://registry.npm.taobao.org| npm change repo
 
 ---
 
