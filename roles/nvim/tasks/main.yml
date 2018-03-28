@@ -1,0 +1,68 @@
+---
+# tasks file for vim
+
+- name: download nvim binary
+  shell: wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz -O {{ ansible_env.HOME }}
+
+- name: unzip
+  shell: tar xf {{ ansible_env.HOME }}/nvim-linux64.tar.gz
+
+- name: create soft link
+  shell: cd {{ ansible_env.HOME }}/nvim-linux64 && ln bin/nvim /usr/bin/nvim && cd -
+
+- name: cp share to root
+  shell cp {{ ansible_env.HOME }}/nvim-linux64/share / -r 
+
+- name: install git
+  package: name=git
+
+- name: git clone Vundle
+  git:
+    repo: "https://github.com/VundleVim/Vundle.vim.git"
+    dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
+    update: no
+
+
+- name: create nvim config dir
+  file: dest={{ ansible_env.HOME }}/.config/nvim state=directory
+
+- name: create nvim colors dir
+  file: dest={{ ansible_env.HOME }}/.config/nvim/colors state=directory
+
+- name: copy .vimrc
+  template: src=vimrc dest={{ ansible_env.HOME }}/.config/nvim/init.vim
+
+- name: copy pip.conf
+  template: src=pip.conf dest=/etc/pip.conf
+
+- name: download pip
+  shell: wget https://bootstrap.pypa.io/get-pip.py -O /root/get-pip.py creates=/root/get-pip.py --no-check-certificate
+
+- name: check whether pip installed
+  shell: pip
+  register: rt
+  ignore_errors: yes
+
+- name: install pip
+  shell: python /root/get-pip.py
+  when: rt.rc != 0
+
+- name: install jedi
+  pip: name=jedi
+  become: yes
+
+- name: install ctags
+  package: name=ctags
+  become: yes
+
+- name: install cscope
+  package: name=cscope
+  become: yes
+
+- name: install sshfs
+  package: name={{ sshfs }}
+  become: yes
+  when: ansible_distribution == 'Debian'
+
+- name: install plugins
+  shell: vim +PluginInstall +qall
