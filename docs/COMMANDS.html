@@ -369,7 +369,12 @@
 </table>
 <hr>
 <h2 id="Configure_or_big_command">2. Configure or big command</h2>
-<h3 id="Add_pip_repo">2.1. Add pip repo</h3>
+<h3 id="vim_commands">2.1. vim commands</h3>
+<ul>
+<li>removing trailing white space</li>
+</ul>
+<pre class="language-"><code>:%s/\s\+$//e
+</code></pre><h3 id="Add_pip_repo">2.2. Add pip repo</h3>
 <p>&#x7F16;&#x8F91;/&#x521B;&#x5EFA;&#x6587;&#x4EF6;/etc/pip.conf&#xFF0C;&#x586B;&#x5165;&#x4E0B;&#x9762;&#x5185;&#x5BB9;&#xFF1A;</p>
 <pre class="language-"><code>[global]
 index-url = http://pypi.douban.com/simple
@@ -377,13 +382,13 @@ extra-index-url = https://pypi.python.org/simple
 
 [install]
 trusted-host = pypi.douban.com
-</code></pre><h4 id="Repos">2.1.1. Repos</h4>
+</code></pre><h4 id="Repos">2.2.1. Repos</h4>
 <ul>
 <li>index-url = <a href="http://pypi.douban.com/simple" target="_blank">http://pypi.douban.com/simple</a>  &#x8C46;&#x74E3;</li>
 <li>index-url = <a href="http://mirrors.aliyun.com/pypi/simple" target="_blank">http://mirrors.aliyun.com/pypi/simple</a> &#x963F;&#x91CC;&#x4E91;</li>
 </ul>
 <hr>
-<h3 id="Persistent_mount_point_after_reboot">2.2. Persistent mount point after reboot</h3>
+<h3 id="Persistent_mount_point_after_reboot">2.3. Persistent mount point after reboot</h3>
 <p>$ cat /etc/fstab</p>
 <pre class="language-"><code># /etc/fstab: static file system information.
 #
@@ -396,25 +401,25 @@ trusted-host = pypi.douban.com
 /dev/vda1                               /               ext4    defaults        0       1
 /dev/vdb1                               /mnt            ext4    defaults        0       1
 </code></pre><hr>
-<h3 id="Remove_interface(qvocd4f9cc5-e8)_and_add_to_another_ovs_br">2.3. Remove interface(qvocd4f9cc5-e8) and add to another ovs br</h3>
+<h3 id="Remove_interface(qvocd4f9cc5-e8)_and_add_to_another_ovs_br">2.4. Remove interface(qvocd4f9cc5-e8) and add to another ovs br</h3>
 <pre class="language-"><code class="lang-shell">ovs-vsctl del-port br-int qvocd4f9cc5-e8
 ovs-vsctl add-port br-flat qvocd4f9cc5-e8
 ovs-ofctl dump-flows br-int
 </code></pre>
 <hr>
-<h3 id="glance_image_upload_example">2.4. glance image upload example</h3>
+<h3 id="glance_image_upload_example">2.5. glance image upload example</h3>
 <pre class="language-"><code class="lang-shell">glance image-create --name centos2 --disk-format raw --container-format bare \
     --file name.img --progress
 </code></pre>
-<h3 id="push_tag_to_repo">2.5. push tag to repo</h3>
+<h3 id="push_tag_to_repo">2.6. push tag to repo</h3>
 <pre class="language-"><code class="lang-shell">git tag -am &quot;2016.3.RC1&quot; 2016.3.RC1
 git push gerrit 2016.3.RC1
 </code></pre>
-<h3 id="sql_update_cinder_service_table">2.6. sql update cinder service table</h3>
+<h3 id="sql_update_cinder_service_table">2.7. sql update cinder service table</h3>
 <pre class="language-"><code class="lang-sql">mysql <span class="token operator">-</span><span class="token number">e</span> <span class="token string">&quot;update services set deleted = 1 where host like &apos;controller%&apos; and disabled = 1 &quot;</span> cinder <span class="token operator">-</span>u cinder <span class="token operator">-</span>p
 </code></pre>
 <hr>
-<h3 id="OoO_network_setting">2.7. OoO network setting</h3>
+<h3 id="OoO_network_setting">2.8. OoO network setting</h3>
 <p>change the following config</p>
 <pre class="language-"><code>vim /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 </code></pre><p>firewall_driver = noop
@@ -422,36 +427,36 @@ prevent_arp_spoofing = False</p>
 <p>remove flows</p>
 <pre class="language-"><code class="lang-shell">iptables -F
 </code></pre>
-<h3 id="debug_network_by_tcpdump">2.8. debug network by tcpdump</h3>
+<h3 id="debug_network_by_tcpdump">2.9. debug network by tcpdump</h3>
 <pre class="language-"><code class="lang-shell">tcpdump -i tap3692138a-69 -exx -n
 </code></pre>
 <hr>
-<h3 id="alter_RETENTION">2.9. alter RETENTION</h3>
+<h3 id="alter_RETENTION">2.10. alter RETENTION</h3>
 <pre class="language-"><code>ALTER RETENTION POLICY default ON stackwatch DURATION 60d REPLICATION 1 DEFAULT
 </code></pre><hr>
-<h3 id="enable_cinder_notification__etc_cinder_cinder_conf">2.10. enable cinder notification /etc/cinder/cinder.conf</h3>
+<h3 id="enable_cinder_notification__etc_cinder_cinder_conf">2.11. enable cinder notification /etc/cinder/cinder.conf</h3>
 <pre class="language-"><code>[oslo_messaging_notifications]
 driver=messaging
 </code></pre><hr>
-<h3 id="SSH_local_and_remote_forwarding">2.11. SSH local and remote forwarding</h3>
+<h3 id="SSH_local_and_remote_forwarding">2.12. SSH local and remote forwarding</h3>
 <p>HostA is the local machine and example.com is the remote machine
 imgur.com is a third party machine could rearched by example.com</p>
-<h4 id="Local_forwarding">2.11.1. Local forwarding</h4>
+<h4 id="Local_forwarding">2.12.1. Local forwarding</h4>
 <p>9000 is the port owned by HostA
 localhost is example.com</p>
 <pre class="language-"><code class="lang-shell">ssh -L HostA_IP:9000:imgur.com:80 user@example.com
 ssh -L HostA_IP:9000:localhost:5432 user@example.com
 </code></pre>
-<h4 id="Remote_forwarding">2.11.2. Remote forwarding</h4>
+<h4 id="Remote_forwarding">2.12.2. Remote forwarding</h4>
 <p>9000 is the owned by example.com
 localhost is HostA</p>
 <pre class="language-"><code class="lang-shell">ssh -R 9000:localhost:3000 user@example.com
 </code></pre>
-<h4 id="enable_sshd_configuration__etc_ssh_sshd_config">2.11.3. enable sshd configuration /etc/ssh/sshd_config</h4>
+<h4 id="enable_sshd_configuration__etc_ssh_sshd_config">2.12.3. enable sshd configuration /etc/ssh/sshd_config</h4>
 <pre class="language-"><code>GatewayPorts yes
 </code></pre><pre class="language-"><code class="lang-shell">systemctl restart sshd
 </code></pre>
-<h4 id="enable_switch_to_not_allocate_a_tty">2.11.4. enable switch to not allocate a tty</h4>
+<h4 id="enable_switch_to_not_allocate_a_tty">2.12.4. enable switch to not allocate a tty</h4>
 <pre class="language-"><code class="lang-shell">ssh -nNT -L 9000:imgur.com:80 user@example.com
 </code></pre>
 <hr>
@@ -461,7 +466,7 @@ yum history undo tansaction_id
 </code></pre>
 <hr>
 <p><a href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html" target="_blank">vim cheat sheet</a></p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#Commands_table">1. Commands table</a></li><li><a href="#Configure_or_big_command">2. Configure or big command</a></li><ul><li><a href="#Add_pip_repo">2.1. Add pip repo</a></li><ul><li><a href="#Repos">2.1.1. Repos</a></li></ul><li><a href="#Persistent_mount_point_after_reboot">2.2. Persistent mount point after reboot</a></li><li><a href="#Remove_interface(qvocd4f9cc5-e8)_and_add_to_another_ovs_br">2.3. Remove interface(qvocd4f9cc5-e8) and add to another ovs br</a></li><li><a href="#glance_image_upload_example">2.4. glance image upload example</a></li><li><a href="#push_tag_to_repo">2.5. push tag to repo</a></li><li><a href="#sql_update_cinder_service_table">2.6. sql update cinder service table</a></li><li><a href="#OoO_network_setting">2.7. OoO network setting</a></li><li><a href="#debug_network_by_tcpdump">2.8. debug network by tcpdump</a></li><li><a href="#alter_RETENTION">2.9. alter RETENTION</a></li><li><a href="#enable_cinder_notification__etc_cinder_cinder_conf">2.10. enable cinder notification /etc/cinder/cinder.conf</a></li><li><a href="#SSH_local_and_remote_forwarding">2.11. SSH local and remote forwarding</a></li><ul><li><a href="#Local_forwarding">2.11.1. Local forwarding</a></li><li><a href="#Remote_forwarding">2.11.2. Remote forwarding</a></li><li><a href="#enable_sshd_configuration__etc_ssh_sshd_config">2.11.3. enable sshd configuration /etc/ssh/sshd_config</a></li><li><a href="#enable_switch_to_not_allocate_a_tty">2.11.4. enable switch to not allocate a tty</a></li></ul></ul></ul></div><a href="#Commands_table" id="goTop"><i class="fa fa-arrow-up"></i></a>
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#Commands_table">1. Commands table</a></li><li><a href="#Configure_or_big_command">2. Configure or big command</a></li><ul><li><a href="#vim_commands">2.1. vim commands</a></li><li><a href="#Add_pip_repo">2.2. Add pip repo</a></li><ul><li><a href="#Repos">2.2.1. Repos</a></li></ul><li><a href="#Persistent_mount_point_after_reboot">2.3. Persistent mount point after reboot</a></li><li><a href="#Remove_interface(qvocd4f9cc5-e8)_and_add_to_another_ovs_br">2.4. Remove interface(qvocd4f9cc5-e8) and add to another ovs br</a></li><li><a href="#glance_image_upload_example">2.5. glance image upload example</a></li><li><a href="#push_tag_to_repo">2.6. push tag to repo</a></li><li><a href="#sql_update_cinder_service_table">2.7. sql update cinder service table</a></li><li><a href="#OoO_network_setting">2.8. OoO network setting</a></li><li><a href="#debug_network_by_tcpdump">2.9. debug network by tcpdump</a></li><li><a href="#alter_RETENTION">2.10. alter RETENTION</a></li><li><a href="#enable_cinder_notification__etc_cinder_cinder_conf">2.11. enable cinder notification /etc/cinder/cinder.conf</a></li><li><a href="#SSH_local_and_remote_forwarding">2.12. SSH local and remote forwarding</a></li><ul><li><a href="#Local_forwarding">2.12.1. Local forwarding</a></li><li><a href="#Remote_forwarding">2.12.2. Remote forwarding</a></li><li><a href="#enable_sshd_configuration__etc_ssh_sshd_config">2.12.3. enable sshd configuration /etc/ssh/sshd_config</a></li><li><a href="#enable_switch_to_not_allocate_a_tty">2.12.4. enable switch to not allocate a tty</a></li></ul></ul></ul></div><a href="#Commands_table" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -504,7 +509,7 @@ yum history undo tansaction_id
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Commands","level":"1.2","depth":1,"next":{"title":"SSL in python","level":"1.3","depth":1,"path":"SSL.md","ref":"SSL.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toc","splitter","prism","collapsible-chapters","highlight","navigator","livereload"],"styles":{"website":"style.css"},"pluginsConfig":{"prism":{},"livereload":{},"splitter":{},"toc":{},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Dev env","language":"zh-CN","gitbook":"*"},"file":{"path":"COMMANDS.md","mtime":"2018-03-07T04:57:41.528Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-07T04:58:22.320Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Commands","level":"1.2","depth":1,"next":{"title":"SSL in python","level":"1.3","depth":1,"path":"SSL.md","ref":"SSL.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toc","splitter","prism","collapsible-chapters","highlight","navigator","livereload"],"styles":{"website":"style.css"},"pluginsConfig":{"prism":{},"livereload":{},"splitter":{},"toc":{},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Dev env","language":"zh-CN","gitbook":"*"},"file":{"path":"COMMANDS.md","mtime":"2018-04-04T03:36:12.092Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-04T03:36:23.527Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

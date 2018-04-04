@@ -34,6 +34,14 @@
 
 ## Configure or big command
 
+### vim commands
+
+* removing trailing white space
+
+```
+:%s/\s\+$//e 
+```
+
 ### Add pip repo
 编辑/创建文件/etc/pip.conf，填入下面内容：
 ```
@@ -167,3 +175,4 @@ yum history undo tansaction_id
 
 ----
 [vim cheat sheet](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
+
