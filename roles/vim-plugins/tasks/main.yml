@@ -27,7 +27,7 @@
   template: src=pip.conf dest=/etc/pip.conf
 
 - name: download pip
-  shell: wget https://bootstrap.pypa.io/get-pip.py -O /root/get-pip.py creates=/root/get-pip.py --no-check-certificate
+  shell: wget https://bootstrap.pypa.io/get-pip.py -O /root/get-pip.py creates=~/get-pip.py --no-check-certificate
 
 - name: check whether pip installed
   shell: pip
@@ -35,7 +35,7 @@
   ignore_errors: yes
 
 - name: install pip
-  shell: python /root/get-pip.py
+  shell: python ~/get-pip.py
   when: rt.rc != 0
 
 - name: install jedi
