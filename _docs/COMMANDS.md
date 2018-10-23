@@ -29,7 +29,7 @@
 |sudo iptables -L --line-numbers|list rules with line number
 |sudo iptables -D INPUT 3|delete rule by line number
 |npm install -g webpack-cli --registry=https://registry.npm.taobao.org| npm change repo
-
+|go build -gcflags="-N -l"|disable golang compiler inline and optimizations(dlv debug)
 ---
 
 ## Configure or big command
