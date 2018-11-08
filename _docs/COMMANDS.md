@@ -190,6 +190,15 @@ crontab format
 # 5. Entry: Weekday when the process will be started [0-6] [0 is Sunday]
 #
 # all x min = */x
+
+ +---------------- minute (0 - 59)
+ |  +------------- hour (0 - 23)
+ |  |  +---------- day of month (1 - 31)
+ |  |  |  +------- month (1 - 12)
+ |  |  |  |  +---- day of week (0 - 6) (Sunday=0 or 7)
+ |  |  |  |  |
+ *  *  *  *  *  command to be executed
+ 
 ```
 ----
 [vim cheat sheet](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
