@@ -179,6 +179,18 @@ yum history list all
 yum history undo tansaction_id
 ```
 
+-----
+crontab format
+
+```
+# 1. Entry: Minute when the process will be started [0-60]
+# 2. Entry: Hour when the process will be started [0-23]
+# 3. Entry: Day of the month when the process will be started [1-28/29/30/31]
+# 4. Entry: Month of the year when the process will be started [1-12]
+# 5. Entry: Weekday when the process will be started [0-6] [0 is Sunday]
+#
+# all x min = */x
+```
 ----
 [vim cheat sheet](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
 
