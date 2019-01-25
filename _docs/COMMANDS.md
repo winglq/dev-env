@@ -201,6 +201,11 @@ crontab format
  
 ```
 ----
+
+putty bold color changed to grey.
+choose color->font change->font, don't use the default color option.
+
+----
 [vim cheat sheet](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
 
 
